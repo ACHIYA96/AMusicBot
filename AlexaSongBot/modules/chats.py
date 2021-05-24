@@ -29,11 +29,11 @@ async def broadcast(client, message):
 async def chatlist(client, message):
     chats = []
     all_chats = load_chats_list()
-    for i in all_chats:
-        if str(i).startswith("-"):
-            chats.append(i)
-    chatfile = "List of chats.\n0. Chat ID | Members count | Invite Link\n"
-    P = 1
+    #for i in all_chats:
+    #    if str(i).startswith("-"):
+    #        chats.append(i)
+    #Chatfile = "List of chats.\n0. Chat ID | Members count | Invite Link\n"
+    #P = 1
     for chat in chats:
         try:
             link = await app.export_chat_invite_link(int(chat))
