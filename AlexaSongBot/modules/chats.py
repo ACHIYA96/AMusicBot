@@ -18,7 +18,7 @@ async def broadcast(client, message):
             success += 1
         except:
             failed += 1
-            remove_chat_from_db(str(chat))
+            #remove_chat_from_db(str(chat))
             pass
     await message.reply(
         f"Message sent to {success} chat(s). {failed} chat(s) failed recieve message"
@@ -29,11 +29,11 @@ async def broadcast(client, message):
 async def chatlist(client, message):
     chats = []
     all_chats = load_chats_list()
-    #for i in all_chats:
-    #    if str(i).startswith("-"):
-    #        chats.append(i)
-    #Chatfile = "List of chats.\n0. Chat ID | Members count | Invite Link\n"
-    #P = 1
+    for i in all_chats:
+        if str(i).startswith("-"):
+            chats.append(i)
+    Chatfile = "List of chats.\n0. Chat ID | Members count | Invite Link\n"
+    P = 1
     for chat in chats:
         try:
             link = await app.export_chat_invite_link(int(chat))
