@@ -47,7 +47,7 @@ async def song(client, message):
     await app.send_chat_action(message.chat.id, "upload_audio")
     await app.send_audio(
         chat_id=message.chat.id,
-        audio=f"{str(user_id)} by [____ACHIYA____].mp3",
+        audio=f"{str(user_id)}.mp3",
         duration=int(yt.length),
         title=f"{str(yt.title)} by [____ACHIYA____]",
         performer=str(yt.author),
