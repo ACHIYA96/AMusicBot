@@ -25,12 +25,12 @@ def yt_search(song):
 async def song(client, message):
     chat_id = message.chat.id
     user_id = message.from_user["id"]
-    add_chat_to_db(str(chat_id))
+    add_chat_to_db = (str(chat_id))
     args = get_arg(message) + " " + "song"
     if args.startswith(" "):
         await message.reply("Enter a song name. Check /help")
         return ""
-    status = await message.reply("🔎Searching song from YouTube 📺.. Gim me a min ⏳️ © @ACHIYA96 ")
+    status = await message.reply("🔎Fetching your song 📺.. Gim me a min ⏳️ © @ACHIYA96 ")
     video_link = yt_search(args)
     if not video_link:
         await status.edit("😔Song not found.")
@@ -47,9 +47,9 @@ async def song(client, message):
     await app.send_chat_action(message.chat.id, "upload_audio")
     await app.send_audio(
         chat_id=message.chat.id,
-        audio=f"{str(user_id)}.mp3",
+        audio=f"{str(user_id)} by [____ACHIYA____].mp3",
         duration=int(yt.length),
-        title=str(yt.title),
+        title=f"{str(yt.title)} by [____ACHIYA____]",
         performer=str(yt.author),
         reply_to_message_id=message.message_id,
     )
